@@ -8,9 +8,35 @@
 		<source src="assets/video.mp4" type="video/mp4">
 		Your browser does not support HTML5 video.
 	</video>  -->
-	<img src="assets/WeChat Image_20220725223729.jpg" style="display:flex; width: 100%;"alt="Girl in a jacket">
+	<img src="assets/compressed-image.jpg" style="display:flex; width: 100%;"alt="weddingImage">
 	<video controls style="width: 100%; display: flex; z-index:2;" >
 		<source src="assets/video.mp4" type="video/mp4">
 	</video>
+	<div class="ending" style="display: flex; flex-direction: column; justify-content: center;">
+		<h1 style="display:flex; justify-content: center; font-family: Microsoft Yahei;">
+			欢迎大家参加我们的婚礼，扫面下面<span style="color:red;">二维码</span>保留座位
+		</h1>
+		<img src="assets/qr.jpg" style="margin: 0 auto; width: 30%;"alt="QRcode">
+		<h1 id="countingDown" style="display: flex; justify-content: center;"></h1>
+	</div>
 </body>
+<script type="text/javascript">
+	var countDownDate = new Date("Aug 13, 2022 10:58:00").getTime();
+
+	var x = setInterval(function() {
+		var now = new Date().getTime();
+		var distance = countDownDate - now;
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));	
+		var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	
+		document.getElementById("countingDown").innerHTML = "距离婚礼仪式开始： " + days + "天 " + hours + "小时 " + minutes + "分钟 " + seconds + "秒 ";
+
+  	if (distance < 0) {
+    	clearInterval(x);
+    	document.getElementById("countingDown").innerHTML = "Today is the day!";
+  	}
+}, 1000);
+</script>
 </html>
